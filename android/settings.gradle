@@ -1,4 +1,4 @@
-rootProject.name = 'mealsOnWheel_JavaScript'
+rootProject.name = 'mow-firebase'
 
 include ':react-native-maps'
 project(':react-native-maps')
