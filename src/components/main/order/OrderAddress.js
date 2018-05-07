@@ -153,7 +153,6 @@ class OrderAddress extends Component {
                 <Header
                     renderBackButton
                     headerTitle={I18nUtils.tr(TR_BODY_ORDER_SHIPPING_ADDRESS)}
-                    newHeaderTextStyle={{ fontSize: 20 }}
                 />
 
                 {this.renderOrderAddressForm()}
