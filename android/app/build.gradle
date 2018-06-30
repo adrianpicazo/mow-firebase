@@ -104,6 +104,12 @@ android {
             keyAlias 'mealsonwheels'
             keyPassword 'catapass'
         }
+        mow {
+            keyAlias 'mealsonwheels'
+            keyPassword 'catapass'
+            storeFile file('C:/Users/adpim/AndroidKeystore/mow-firebase.release.jks')
+            storePassword 'catapass'
+        }
     }
 
     defaultConfig {
@@ -130,6 +136,8 @@ android {
         release {
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+            debuggable false
+            signingConfig signingConfigs.mow
         }
     }
     // applicationVariants are e.g. debug, release
@@ -155,24 +163,22 @@ dependencies {
     implementation project(':react-native-i18n')
     implementation project(':react-native-onesignal')
     implementation project(':react-native-google-analytics-bridge')
-    implementation fileTree(dir: "libs", include: ["*.jar"])
-    implementation "com.android.support:animated-vector-drawable:27.1.1"
-    implementation "com.android.support:support-v4:27.1.1"
-    implementation "com.android.support:support-media-compat:27.1.1"
-    implementation "com.android.support:appcompat-v7:27.1.1"
-    implementation "com.facebook.react:react-native:+"  // From node_modules
-
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:animated-vector-drawable:27.1.1'
+    implementation 'com.android.support:support-v4:27.1.1'
+    implementation 'com.android.support:support-media-compat:27.1.1'
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.facebook.react:react-native:+'
+    // From node_modules
     // This should be here already
     implementation(project(':react-native-firebase')) {
         transitive = false
     }
-
     implementation "com.google.android.gms:play-services-analytics:$playServicesVersion"
     implementation "com.google.android.gms:play-services-location:$playServicesVersion"
     implementation "com.google.android.gms:play-services-gcm:$playServicesVersion"
     implementation "com.google.android.gms:play-services-base:$playServicesVersion"
     implementation "com.google.android.gms:play-services-tagmanager:$playServicesVersion"
-
     // Firebase dependencies
     implementation "com.google.firebase:firebase-core:$firebaseVersion"
     implementation "com.google.firebase:firebase-auth:$firebaseVersion"

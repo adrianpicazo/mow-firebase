@@ -28,7 +28,7 @@ const EXAMPLE_STATE = {
 };
 
 // TODO: decidir sobre las acciones logout
-export default (state = EXAMPLE_STATE, action) => {
+export default (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case LOGIN_RESET:
             return { ...state, ...INITIAL_STATE };
